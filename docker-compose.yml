@@ -1,0 +1,50 @@
+services:
+  app:
+    build: .
+    container_name: asgard_app
+    ports:
+      - "8080:8080"
+
+
+
+    depends_on:
+      - mongo-db
+      - postgres-db
+    networks:
+      - asgard-network
+
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: asgard_postgres
+    environment:
+      POSTGRES_DB: asgard_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - asgard-network
+
+  mongo-db:
+    image: mongo:7
+    container_name: asgard_mongo
+    ports:
+      - "27017:27017"
+    environment:
+
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: your_password
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - asgard-network
+
+volumes:
+  postgres_data:
+  mongo_data:
+
+networks:
+  asgard-network:
+    driver: bridge
