@@ -9,7 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface EntrepotRepository extends JpaRepository<Entrepot , Long> {
-    Optional<Entrepot> findByNom(String nom);
-
-    boolean existsByNomIgnoreCaseAndIdNot(String nom, Long id);
 }
