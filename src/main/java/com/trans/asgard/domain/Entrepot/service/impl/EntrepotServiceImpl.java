@@ -1,0 +1,68 @@
+package com.trans.asgard.domain.Entrepot.service.impl;
+
+import com.trans.asgard.domain.Entrepot.dto.EntrepotRequestDto;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotResponseDto;
+import com.trans.asgard.domain.Entrepot.mapper.EntrepotMapper;
+import com.trans.asgard.domain.Entrepot.service.interfaces.EntrepotService;
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
+import com.trans.asgard.domain.Entrepot.repository.EntrepotRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class EntrepotServiceImpl implements EntrepotService {
+
+    private final EntrepotRepository entrepotRepository;
+    private final EntrepotMapper entrepotMapper;
+
+    @Override
+    public EntrepotResponseDto createEntrepot(EntrepotRequestDto dto) {
+        Entrepot entrepot = entrepotMapper.toEntity(dto);
+        entrepot = entrepotRepository.save(entrepot);
+
+        return entrepotMapper.toResponseDto(entrepot);
+    }
+
+    @Override
+    public EntrepotResponseDto updateEntrepot(Long id, EntrepotRequestDto dto) {
+        Entrepot entrepot = getEntrepotEntityByIdOrThrow(id);
+
+        entrepotMapper.updateFromDto(dto, entrepot);
+
+        entrepot = entrepotRepository.save(entrepot);
+        return entrepotMapper.toResponseDto(entrepot);
+    }
+
+    @Override
+    public void deleteEntrepot(Long id) {
+        if (!entrepotRepository.existsById(id)) {
+            throw new RuntimeException("Entrepôt non trouvé avec l'ID : " + id);
+        }
+        entrepotRepository.deleteById(id);
+    }
+
+    @Override
+    public EntrepotResponseDto getEntrepotById(Long id) {
+        Entrepot entrepot = getEntrepotEntityByIdOrThrow(id);
+        return entrepotMapper.toResponseDto(entrepot);
+    }
+
+    @Override
+    public List<EntrepotResponseDto> getAllEntrepots() {
+        return entrepotRepository.findAll()
+                .stream()
+                .map(entrepotMapper::toResponseDto)
+                .toList();
+    }
+
+    @Override
+    public Entrepot getEntrepotEntityByIdOrThrow(Long id) {
+        return entrepotRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Entrepôt non trouvé avec l'ID : " + id));
+    }
+}
