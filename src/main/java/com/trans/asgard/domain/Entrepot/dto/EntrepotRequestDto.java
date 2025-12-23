@@ -1,4 +1,4 @@
-package com.trans.asgard.application.dto.Entrepot;
+package com.trans.asgard.domain.Entrepot.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

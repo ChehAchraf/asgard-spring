@@ -1,8 +1,8 @@
-package com.trans.asgard.infrastructure.web;
+package com.trans.asgard.domain.Entrepot.controller;
 
-import com.trans.asgard.application.dto.Entrepot.EntrepotRequestDto;
-import com.trans.asgard.application.dto.Entrepot.EntrepotResponseDto;
-import com.trans.asgard.application.service.interfaces.EntrepotService;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotRequestDto;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotResponseDto;
+import com.trans.asgard.domain.Entrepot.service.interfaces.EntrepotService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

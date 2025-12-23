@@ -1,8 +1,8 @@
-package com.trans.asgard.application.service.interfaces;
+package com.trans.asgard.domain.Entrepot.service.interfaces;
 
-import com.trans.asgard.application.dto.Entrepot.EntrepotRequestDto;
-import com.trans.asgard.application.dto.Entrepot.EntrepotResponseDto;
-import com.trans.asgard.domain.model.Entrepot;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotRequestDto;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotResponseDto;
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
 
 import java.util.List;
 

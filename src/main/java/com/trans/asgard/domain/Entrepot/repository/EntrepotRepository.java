@@ -1,7 +1,7 @@
-package com.trans.asgard.domain.repository;
+package com.trans.asgard.domain.Entrepot.repository;
 
 
-import com.trans.asgard.domain.model.Entrepot;
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

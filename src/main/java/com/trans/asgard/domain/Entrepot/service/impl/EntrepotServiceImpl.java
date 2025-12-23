@@ -1,11 +1,11 @@
-package com.trans.asgard.application.service.impl;
+package com.trans.asgard.domain.Entrepot.service.impl;
 
-import com.trans.asgard.application.dto.Entrepot.EntrepotRequestDto;
-import com.trans.asgard.application.dto.Entrepot.EntrepotResponseDto;
-import com.trans.asgard.application.mapper.EntrepotMapper;
-import com.trans.asgard.application.service.interfaces.EntrepotService;
-import com.trans.asgard.domain.model.Entrepot;
-import com.trans.asgard.domain.repository.EntrepotRepository;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotRequestDto;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotResponseDto;
+import com.trans.asgard.domain.Entrepot.mapper.EntrepotMapper;
+import com.trans.asgard.domain.Entrepot.service.interfaces.EntrepotService;
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
+import com.trans.asgard.domain.Entrepot.repository.EntrepotRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

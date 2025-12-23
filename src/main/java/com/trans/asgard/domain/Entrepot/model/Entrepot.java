@@ -1,4 +1,4 @@
-package com.trans.asgard.domain.model;
+package com.trans.asgard.domain.Entrepot.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.trans.asgard.application.dto.Entrepot;
+package com.trans.asgard.domain.Entrepot.dto;
 
 public record EntrepotResponseDto(
         Long id,

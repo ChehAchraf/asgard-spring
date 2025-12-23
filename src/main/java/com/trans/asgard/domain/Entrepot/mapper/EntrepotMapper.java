@@ -1,8 +1,8 @@
-package com.trans.asgard.application.mapper;
+package com.trans.asgard.domain.Entrepot.mapper;
 
-import com.trans.asgard.application.dto.Entrepot.EntrepotRequestDto;
-import com.trans.asgard.application.dto.Entrepot.EntrepotResponseDto;
-import com.trans.asgard.domain.model.Entrepot;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotRequestDto;
+import com.trans.asgard.domain.Entrepot.dto.EntrepotResponseDto;
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
