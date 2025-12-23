@@ -1,6 +1,6 @@
 package com.trans.asgard.domain.iam.enums;
 
 public enum Role {
-    ADMIN,
-    GESTIONNAIRE,
+    ROLE_ADMIN,
+    ROLE_GESTIONNAIRE,
 }
