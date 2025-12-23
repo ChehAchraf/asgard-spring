@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductDto {
 
-    @NotBlank
     private Long id;
     @NotBlank(message = "Nom is required")
     private String nom;
