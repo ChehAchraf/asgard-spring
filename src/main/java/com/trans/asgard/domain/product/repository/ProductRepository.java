@@ -1,6 +1,6 @@
-package com.trans.asgard.domain.iam.repository;
+package com.trans.asgard.domain.product.repository;
 
-import com.trans.asgard.domain.iam.model.Product;
+import com.trans.asgard.domain.product.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

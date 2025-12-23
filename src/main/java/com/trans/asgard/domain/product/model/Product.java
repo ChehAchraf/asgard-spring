@@ -1,4 +1,4 @@
-package com.trans.asgard.domain.iam.model;
+package com.trans.asgard.domain.product.model;
 
 
 import jakarta.persistence.*;
