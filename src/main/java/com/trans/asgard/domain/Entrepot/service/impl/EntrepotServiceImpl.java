@@ -32,12 +32,6 @@ public class EntrepotServiceImpl implements EntrepotService {
     public EntrepotResponseDto updateEntrepot(Long id, EntrepotRequestDto dto) {
         Entrepot entrepot = getEntrepotEntityByIdOrThrow(id);
 
-        String newNom = dto.nom();
-        if (entrepotRepository.existsByNomIgnoreCaseAndIdNot(newNom, id)) {
-            throw new IllegalStateException("Un autre entrepôt utilise déjà ce nom : " + newNom);
-        }
-
-
         entrepotMapper.updateFromDto(dto, entrepot);
 
         entrepot = entrepotRepository.save(entrepot);
