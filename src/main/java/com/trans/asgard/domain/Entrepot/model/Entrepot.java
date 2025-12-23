@@ -20,7 +20,7 @@ public class Entrepot {
 
     @NotBlank
     @Size(min = 2, max = 100)
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String nom;
 
     @NotBlank
@@ -30,8 +30,4 @@ public class Entrepot {
 
     @Size(max = 255)
     private String adresse;
-
-    public void setNom(String nom) {
-        this.nom = nom == null ? null : nom.trim().toLowerCase();
-    }
 }
