@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
 
-    @PostMapping
-    public ResponseEntity<> createProduct(@Valid @RequestBody RegisterUserRequest request)
-    {
-
-    }
+//    @PostMapping
+//    public ResponseEntity<> createProduct(@Valid @RequestBody RegisterUserRequest request)
+//    {
+//
+//    }
 }

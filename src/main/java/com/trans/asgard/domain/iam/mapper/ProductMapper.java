@@ -7,8 +7,8 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
     ProductDto toDto(Product product);
-    @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updatedAt", ignore = true)
+//    @Mapping(target = "createdAt", ignore = true)
+//    @Mapping(target = "updatedAt", ignore = true)
     Product toEntity(ProductDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
