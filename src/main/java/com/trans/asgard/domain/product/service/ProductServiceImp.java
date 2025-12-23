@@ -1,10 +1,10 @@
-package com.trans.asgard.domain.iam.service;
+package com.trans.asgard.domain.product.service;
 
 import com.trans.asgard.domain.iam.dto.ProductDto;
-import com.trans.asgard.domain.iam.mapper.ProductMapper;
-import com.trans.asgard.domain.iam.model.Product;
-import com.trans.asgard.domain.iam.repository.ProductRepository;
-import com.trans.asgard.domain.iam.service.interfaces.ProductService;
+import com.trans.asgard.domain.product.mapper.ProductMapper;
+import com.trans.asgard.domain.product.model.Product;
+import com.trans.asgard.domain.product.repository.ProductRepository;
+import com.trans.asgard.domain.product.service.interfaces.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.trans.asgard.domain.iam.mapper;
+package com.trans.asgard.domain.product.mapper;
 
 import com.trans.asgard.domain.iam.dto.ProductDto;
-import com.trans.asgard.domain.iam.model.Product;
+import com.trans.asgard.domain.product.model.Product;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")

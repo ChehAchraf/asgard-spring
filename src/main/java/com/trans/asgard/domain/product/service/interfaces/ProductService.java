@@ -1,4 +1,4 @@
-package com.trans.asgard.domain.iam.service.interfaces;
+package com.trans.asgard.domain.product.service.interfaces;
 
 import com.trans.asgard.domain.iam.dto.ProductDto;
 
