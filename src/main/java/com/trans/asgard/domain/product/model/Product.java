@@ -1,10 +1,13 @@
 package com.trans.asgard.domain.product.model;
 
 
+import com.trans.asgard.domain.stock.model.Stock;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -25,8 +28,10 @@ public class Product {
     private double poids;
     private String unite;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Stock> stocks;
 
-//    @OneToMany(mappedBy="product" , cascade = CascadeType.ALL,orphanRemoval = true)
-//    private List<Stock> stocks;
+
+
 }
 
