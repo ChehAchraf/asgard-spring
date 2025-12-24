@@ -1,4 +1,4 @@
-package com.trans.asgard.infrastructure.exception.dto.custom;
+package com.trans.asgard.infrastructure.exception.custom;
 
 public class ResourceNotFoundException extends RuntimeException{
 
