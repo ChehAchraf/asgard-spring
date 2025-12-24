@@ -34,11 +34,16 @@ public class StockServiceImpl implements StockService {
         stock.setQuantity(stock.getQuantity() - quantity);
         stockRepository.save(stock);
 
+        LocalDate today = LocalDate.now();
+
         HistoriqueVente history = HistoriqueVente.builder()
                 .dateVente(LocalDate.now())
                 .quantiteVendue(quantity)
                 .product(stock.getProduct())
                 .entrepot(stock.getEntrepot())
+                .jourSemaine(today.getDayOfWeek().toString())
+                .mois(today.getMonthValue())
+                .annee(today.getYear())
                 .build();
 
         historiqueVenteRepository.save(history);
