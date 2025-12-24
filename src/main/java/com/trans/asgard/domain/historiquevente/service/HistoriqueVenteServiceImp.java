@@ -37,15 +37,11 @@ public class HistoriqueVenteServiceImp implements HistoriqueVenteService {
                         .orElseThrow(() -> new RuntimeException("Entrepot non trouvé"))
         );
 
-        if (h.getDateVente() != null) {
-            h.setJourSemaine(h.getDateVente().getDayOfWeek().toString());
-            h.setMois(h.getDateVente().getMonthValue());
-            h.setAnnee(h.getDateVente().getYear());
-        }
+
 
 
         HistoriqueVente saved = historiqueVenteRepository.save(h);
-        return mapper.toDto(saved);
+        return mapper.toResponse(saved);
 
     }
 
@@ -53,7 +49,7 @@ public class HistoriqueVenteServiceImp implements HistoriqueVenteService {
     public HistoriqueVenteDto getById(Long id) {
         HistoriqueVente h = historiqueVenteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("HistoriqueVente non trouvé"));
-        return mapper.toDto(h);
+        return mapper.toResponse(h);
     }
 
 
@@ -61,7 +57,7 @@ public class HistoriqueVenteServiceImp implements HistoriqueVenteService {
     public List<HistoriqueVenteDto> getAll() {
         return historiqueVenteRepository.findAll()
                 .stream()
-                .map(mapper::toDto)
+                .map(mapper::toResponse)
                 .toList();
     }
 
@@ -71,7 +67,7 @@ public class HistoriqueVenteServiceImp implements HistoriqueVenteService {
 
         return historiqueVenteRepository.findByProductId(productId)
                 .stream()
-                .map(mapper::toDto)
+                .map(mapper::toResponse)
                 .toList();
 
     }
@@ -83,7 +79,7 @@ public class HistoriqueVenteServiceImp implements HistoriqueVenteService {
 
         return historiqueVenteRepository.findByEntrepotId(entrepotId)
                 .stream()
-                .map(mapper::toDto)
+                .map(mapper::toResponse)
                 .toList();
 
     }
