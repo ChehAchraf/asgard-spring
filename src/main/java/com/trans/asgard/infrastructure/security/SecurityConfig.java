@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final Filter jwtFilter;
 
     @Bean
@@ -34,10 +34,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/api/product/**").permitAll()
                         .requestMatchers( "/api/product/**").hasRole("ADMIN")
                         .requestMatchers( "/api/historiqueVente/**").hasRole("ADMIN")
-
-
-
                         .anyRequest().authenticated()
+                ).exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(customAuthenticationEntryPoint)
                 )
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
