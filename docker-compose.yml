@@ -4,14 +4,11 @@ services:
     container_name: asgard_app
     ports:
       - "8080:8080"
-
-
-
-    depends_on:
-      - mongo-db
-      - postgres-db
     networks:
       - asgard-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   postgres-db:
     image: postgres:15-alpine
@@ -26,20 +23,12 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - asgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d asgard_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  mongo-db:
-    image: mongo:7
-    container_name: asgard_mongo
-    ports:
-      - "27017:27017"
-    environment:
-
-      MONGO_INITDB_ROOT_USERNAME: mongo
-      MONGO_INITDB_ROOT_PASSWORD: your_password
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - asgard-network
 
 volumes:
   postgres_data:
