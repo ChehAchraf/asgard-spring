@@ -7,8 +7,10 @@ import com.trans.asgard.domain.historiquevente.repository.HistoriqueVenteReposit
 import com.trans.asgard.domain.prevision.dto.PrevisionResponse;
 import com.trans.asgard.domain.prevision.model.Prevision;
 import com.trans.asgard.domain.prevision.repository.PrevisionRepository;
-import com.trans.asgard.domain.prevision.service.intefaces.PrevisionService;
+import com.trans.asgard.domain.prevision.service.interfaces.PrevisionService;
+import com.trans.asgard.domain.stock.model.Stock;
 import com.trans.asgard.domain.stock.repository.StockRepository;
+import com.trans.asgard.infrastructure.exception.custom.LlmEnhancementException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -45,7 +47,7 @@ public class PrevisionServiceImpl implements PrevisionService {
 
         int currentStock = stockRepository
                 .findByProductIdAndEntrepotId(productId, warehouseId)
-                .map(stock -> stock.getQuantity())
+                .map(Stock::getQuantity)
                 .orElse(0);
 
         String productName = salesHistory.isEmpty()
@@ -153,6 +155,7 @@ public class PrevisionServiceImpl implements PrevisionService {
         }
 
         double denominator = n * sumX2 - sumX * sumX;
+        // Small epsilon to avoid instability when denominator is very close to zero
         if (Math.abs(denominator) < 0.001) return 0;
 
         return (n * sumXY - sumX * sumY) / denominator;
@@ -189,6 +192,10 @@ public class PrevisionServiceImpl implements PrevisionService {
                 }
             }
         } catch (Exception e) {
+            throw new LlmEnhancementException(
+                    "Failed to enhance prediction using LLM for product: " + productName,
+                    e
+            );
         }
         return null;
     }

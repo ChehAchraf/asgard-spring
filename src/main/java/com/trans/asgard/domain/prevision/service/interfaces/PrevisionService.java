@@ -1,7 +1,6 @@
-package com.trans.asgard.domain.prevision.service.intefaces;
+package com.trans.asgard.domain.prevision.service.interfaces;
 
 import com.trans.asgard.domain.prevision.dto.PrevisionResponse;
-import com.trans.asgard.domain.prevision.dto.PrevisionTestRequest;
 
 public interface PrevisionService {
     PrevisionResponse generateAndSaveForecast(Long productId, Long warehouseId);

@@ -220,7 +220,7 @@ class ProductServiceImpTest {
 
             ProductDto result = productService.getById(1L);
 
-            assertThat(result).isEqualToComparingFieldByField(productDto);
+            assertThat(result).usingRecursiveComparison().isEqualTo(productDto);
         }
 
         @Test

@@ -1,9 +1,7 @@
 package com.trans.asgard.domain.prevision.controller;
 
 import com.trans.asgard.domain.prevision.dto.PrevisionResponse;
-import com.trans.asgard.domain.prevision.dto.PrevisionTestRequest;
-import com.trans.asgard.domain.prevision.service.intefaces.PrevisionService;
-import jakarta.validation.Valid;
+import com.trans.asgard.domain.prevision.service.interfaces.PrevisionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

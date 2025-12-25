@@ -86,7 +86,10 @@ class PrevisionServiceImplTest {
             assertThat(response.quantiteEstimee30Jours()).isGreaterThanOrEqualTo(50);
             assertThat(response.niveauConfiance()).isEqualTo(25);
             assertThat(response.detailsJson()).contains("no_data");
-            assertThat(response.recommandation()).containsAnyOf("adequate", "No sales activity");
+            assertThat(response.recommandation()).satisfiesAnyOf(
+                    rec -> assertThat(rec).contains("adequate"),
+                    rec -> assertThat(rec).contains("No sales activity")
+            );
         }
     }
 }
