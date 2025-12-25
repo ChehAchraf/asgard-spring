@@ -48,4 +48,6 @@ public class EntrepotController {
         entrepotService.deleteEntrepot(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }

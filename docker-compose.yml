@@ -7,6 +7,8 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
+      postgres-db:
+        condition: service_healthy
     networks:
       - asgard-network
     environment:
@@ -25,19 +27,12 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - asgard-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d asgard_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  mongo-db:
-    image: mongo:7
-    container_name: asgard_mongo
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongo
-      MONGO_INITDB_ROOT_PASSWORD: your_password
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - asgard-network
 
   ollama:
     image: ollama/ollama:latest
@@ -59,6 +54,7 @@ services:
       start_period: 30s
     networks:
       - asgard-network
+
 
 volumes:
   postgres_data:
