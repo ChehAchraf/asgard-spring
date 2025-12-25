@@ -5,5 +5,4 @@ import com.trans.asgard.domain.prevision.dto.PrevisionTestRequest;
 
 public interface PrevisionService {
     PrevisionResponse generateAndSaveForecast(Long productId, Long warehouseId);
-    PrevisionResponse generateAndSaveTestForecast(PrevisionTestRequest request);
 }
