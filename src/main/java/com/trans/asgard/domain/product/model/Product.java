@@ -5,6 +5,7 @@ import com.trans.asgard.domain.historiquevente.model.HistoriqueVente;
 import com.trans.asgard.domain.stock.model.Stock;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "products")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {

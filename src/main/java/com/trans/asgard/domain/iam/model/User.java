@@ -1,5 +1,6 @@
 package com.trans.asgard.domain.iam.model;
 
+import com.trans.asgard.domain.Entrepot.model.Entrepot;
 import com.trans.asgard.domain.iam.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -35,5 +36,9 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "entrepot_id")
+    private Entrepot entrepotAssigne;
 
 }

@@ -1,6 +1,7 @@
 package com.trans.asgard.domain.Entrepot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.trans.asgard.domain.iam.model.User;
 import com.trans.asgard.domain.stock.model.Stock;
 import jakarta.persistence.*;
 import java.util.List;
@@ -38,4 +39,8 @@ public class Entrepot {
     @OneToMany(mappedBy = "entrepot", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Stock> stocks;
+
+    @OneToMany(mappedBy = "entrepotAssigne")
+    @JsonIgnore
+    private List<User> gestionnaires;
 }
