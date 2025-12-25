@@ -21,10 +21,4 @@ public class PrevisionController {
             @PathVariable Long warehouseId) {
         return ResponseEntity.ok(previsionService.generateAndSaveForecast(productId, warehouseId));
     }
-
-    @PostMapping("/test")
-    public ResponseEntity<PrevisionResponse> generateTestForecast(
-            @Valid @RequestBody PrevisionTestRequest request) {
-        return ResponseEntity.ok(previsionService.generateAndSaveTestForecast(request));
-    }
 }
