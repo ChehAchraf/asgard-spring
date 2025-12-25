@@ -1,4 +1,4 @@
-package com.trans.asgard.domain.iam.dto;
+package com.trans.asgard.domain.product.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

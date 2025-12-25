@@ -1,7 +1,7 @@
 package com.trans.asgard.domain.product.controller;
 
 
-import com.trans.asgard.domain.iam.dto.ProductDto;
+import com.trans.asgard.domain.product.dto.ProductDto;
 import com.trans.asgard.domain.product.service.interfaces.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.trans.asgard.domain.product.service;
 
-import com.trans.asgard.domain.iam.dto.ProductDto;
+import com.trans.asgard.domain.product.dto.ProductDto;
 import com.trans.asgard.domain.product.mapper.ProductMapper;
 import com.trans.asgard.domain.product.model.Product;
 import com.trans.asgard.domain.product.repository.ProductRepository;
