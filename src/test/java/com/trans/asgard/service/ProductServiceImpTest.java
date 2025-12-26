@@ -61,7 +61,9 @@ class ProductServiceImpTest {
                 1.80,
                 0.70,
                 1.5,
-                "L"
+                "L",
+                null,
+                null
         );
 
         createInputDto = new ProductDto(
@@ -73,7 +75,9 @@ class ProductServiceImpTest {
                 1.80,
                 0.70,
                 1.5,
-                "L"
+                "L",
+                null,
+                null
         );
     }
 
@@ -122,7 +126,9 @@ class ProductServiceImpTest {
                     2.10,
                     1.10,
                     2.0,
-                    "L"
+                    "L",
+                    null,
+                    null
             );
 
             Product updatedEntity = Product.builder()
@@ -146,7 +152,9 @@ class ProductServiceImpTest {
                     2.10,
                     1.10,
                     2.0,
-                    "L"
+                    "L",
+                    null,
+                    null
             );
 
             when(productRepository.findById(1L)).thenReturn(Optional.of(productEntity));
@@ -171,7 +179,7 @@ class ProductServiceImpTest {
         void shouldThrowExceptionWhenUpdatingNonExistingProduct() {
             when(productRepository.findById(999L)).thenReturn(Optional.empty());
 
-            ProductDto dummyDto = new ProductDto(null, "Test", "Test", "Test", 10.0, 5.0, 5.0, 1.0, "kg");
+            ProductDto dummyDto = new ProductDto(null, "Test", "Test", "Test", 10.0, 5.0, 5.0, 1.0, "kg",null,null);
 
             assertThatThrownBy(() -> productService.update(999L, dummyDto))
                     .isInstanceOf(RuntimeException.class)
