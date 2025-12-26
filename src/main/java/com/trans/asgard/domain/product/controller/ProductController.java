@@ -1,8 +1,10 @@
 package com.trans.asgard.domain.product.controller;
 
 
-import com.trans.asgard.domain.iam.dto.ProductDto;
+import com.trans.asgard.domain.product.dto.ProductDto;
+import com.trans.asgard.domain.product.mapper.ProductMapper;
 import com.trans.asgard.domain.product.service.interfaces.ProductService;
+import com.trans.asgard.domain.stock.service.interfaces.StockService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,8 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+    private final StockService stockService;
+    private final ProductMapper productMapper;
 
 
     @GetMapping

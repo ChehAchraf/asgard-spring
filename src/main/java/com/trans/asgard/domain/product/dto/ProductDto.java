@@ -1,4 +1,4 @@
-package com.trans.asgard.domain.iam.dto;
+package com.trans.asgard.domain.product.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -41,6 +41,13 @@ public class ProductDto {
 
     @NotBlank(message = "Unite is required")
     private String unite;
+    @NotBlank(message = "entrepot id is required")
+    @PositiveOrZero(message = "Marge must be zero or positive")
+    private Long initialEntrepotId;
+
+    @NotBlank(message = "inital quantity is required")
+    @PositiveOrZero(message = "Marge must be zero or positive")
+    private Integer initialQuantity;
 
 
 }

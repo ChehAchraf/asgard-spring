@@ -1,6 +1,6 @@
 package com.trans.asgard.domain.product.service.interfaces;
 
-import com.trans.asgard.domain.iam.dto.ProductDto;
+import com.trans.asgard.domain.product.dto.ProductDto;
 
 import java.util.List;
 
