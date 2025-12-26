@@ -5,6 +5,7 @@ import com.trans.asgard.domain.product.mapper.ProductMapper;
 import com.trans.asgard.domain.product.model.Product;
 import com.trans.asgard.domain.product.repository.ProductRepository;
 import com.trans.asgard.domain.product.service.ProductServiceImp;
+import com.trans.asgard.domain.stock.service.interfaces.StockService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -30,6 +31,9 @@ class ProductServiceImpTest {
 
     @Mock
     private ProductMapper mapper;
+
+    @Mock
+    private StockService stockService;
 
     @InjectMocks
     private ProductServiceImp productService;
