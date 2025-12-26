@@ -1,6 +1,7 @@
 package com.trans.asgard.domain.product.model;
 
 
+import com.trans.asgard.domain.historiquevente.model.HistoriqueVente;
 import com.trans.asgard.domain.stock.model.Stock;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,8 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Stock> stocks;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<HistoriqueVente> historiqueVentes;
 
 
 }

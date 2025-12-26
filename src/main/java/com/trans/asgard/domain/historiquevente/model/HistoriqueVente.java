@@ -30,8 +30,23 @@ public class HistoriqueVente {
     private int annee;
 
     @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+
     private Product product;
 
     @ManyToOne
+    @JoinColumn(name = "entrepot_id", nullable = false)
+
     private Entrepot entrepot;
+
+
+    @PrePersist
+    @PreUpdate
+    private void computeDateFields() {
+        if (dateVente != null) {
+            this.jourSemaine = dateVente.getDayOfWeek().toString();
+            this.mois = dateVente.getMonthValue();
+            this.annee = dateVente.getYear();
+        }
+    }
 }
